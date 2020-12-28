@@ -1,10 +1,10 @@
 class CpuSentinel < Formula
 	desc "CPU Sentinel CLI"
 	homepage "https://github.com/lstarrett/cpu-sentinel"
-	url "https://github.com/lstarrett/cpu-sentinel/archive/0.1.tar.gz"
-	sha256 "c81aeb0c0ecf39208c3cf1c8a1eb4be90430b099423193c29577acf8299e4e12"
+	url "https://github.com/lstarrett/cpu-sentinel/archive/0.2.tar.gz"
+	sha256 "088f2daf271cbba6712c600128c946d8d501257ab8d8707b55da69c0c3aab29f"
 	license "MIT"
-	version "0.1"
+	version "0.2"
 
 	def install
 	# Move everything under #{libexec}/
