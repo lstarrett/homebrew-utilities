@@ -2,7 +2,7 @@ class CpuSentinel < Formula
 	desc "CPU Sentinel CLI"
 	homepage "https://github.com/lstarrett/cpu-sentinel"
 	url "https://github.com/lstarrett/cpu-sentinel/archive/0.2.tar.gz"
-	sha256 "088f2daf271cbba6712c600128c946d8d501257ab8d8707b55da69c0c3aab29f"
+	sha256 "ef735c626aca5167ccbe869e4402fe0e7fb46ae10b8d87b5c171bfff6221cff3"
 	license "MIT"
 	version "0.2"
 
