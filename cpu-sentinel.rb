@@ -14,7 +14,7 @@ class CpuSentinel < Formula
 	# bin.write_exec_script (libexec/"cpu-sentinel")
 
 	bin.install "cpu-sentinel"
-	etc.install "process-list"
+	etc.install "procs.conf"
 	end
 
 	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
@@ -31,7 +31,7 @@ class CpuSentinel < Formula
 			<array>
 				<string>/usr/local/opt/cpu-sentinel/bin/cpu-sentinel</string>
 				<string>-f</string>
-				<string>/usr/local/opt/cpu-sentinel/libexec/process_list</string>
+				<string>/usr/local/opt/cpu-sentinel/etc/procs.conf</string>
 				<string>-s</string>
 				<string>0</string>
 				<string>-p</string>
