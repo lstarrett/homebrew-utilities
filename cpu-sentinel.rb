@@ -16,14 +16,13 @@ class CpuSentinel < Formula
 
 	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
 	# https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
-			# TODO: remove these after proving unnecessary
-			# <key>Label</key>
-			# <string>com.cpusentinel</string>
 	def plist; <<~EOS
 		<?xml version="1.0" encoding="UTF-8"?>
 		<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 		<plist version="1.0">
 			<dict>
+			<key>Label</key>
+			<string>com.cpusentinel</string>
 
 			<key>ProgramArguments</key>
 			<array>
