@@ -39,10 +39,10 @@ class CpuSentinel < Formula
 			<integer>120</integer>
 
 			<key>StandardErrorPath</key>
-			<string>err</string>
+			<string>/tmp/homebrew.mxcl.cpu-sentinel.err</string>
 
 			<key>StandardOutPath</key>
-			<string>log</string>
+			<string>homebrew.mxcl.cpu-sentinel.log</string>
 
 			<key>RunAtLoad</key>
 			<true/>
