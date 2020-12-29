@@ -8,10 +8,13 @@ class CpuSentinel < Formula
 
 	def install
 	# Move everything under #{libexec}/
-	libexec.install Dir["*"]
+	# libexec.install Dir["*"]
 
 	# Then write executables under #{bin}/
-	bin.write_exec_script (libexec/"cpu-sentinel")
+	# bin.write_exec_script (libexec/"cpu-sentinel")
+
+	bin.install "cpu-sentinel"
+	etc.install "process-list"
 	end
 
 	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
