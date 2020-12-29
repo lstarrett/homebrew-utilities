@@ -16,19 +16,20 @@ class CpuSentinel < Formula
 
 	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
 	# https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+			# TODO: remove these after proving unnecessary
+			# <key>Label</key>
+			# <string>com.cpusentinel</string>
 	def plist; <<~EOS
 		<?xml version="1.0" encoding="UTF-8"?>
 		<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 		<plist version="1.0">
 			<dict>
-			<key>Label</key>
-			<string>com.cpusentinel</string>
 
 			<key>ProgramArguments</key>
 			<array>
-				<string>cpu-sentinel</string>
+				<string>/usr/local/opt/cpu-sentinel/bin/cpu-sentinel</string>
 				<string>-f</string>
-				<string>process_list</string>
+				<string>/usr/local/opt/cpu-sentinel/libexec/process_list</string>
 				<string>-s</string>
 				<string>0</string>
 				<string>-p</string>
@@ -39,10 +40,10 @@ class CpuSentinel < Formula
 			<integer>120</integer>
 
 			<key>StandardErrorPath</key>
-			<string>/tmp/homebrew.mxcl.cpu-sentinel.err</string>
+			<string>/usr/local/var/log/homebrew.mxcl.cpu-sentinel.err</string>
 
 			<key>StandardOutPath</key>
-			<string>homebrew.mxcl.cpu-sentinel.log</string>
+			<string>/usr/local/var/log/homebrew.mxcl.cpu-sentinel.log</string>
 
 			<key>RunAtLoad</key>
 			<true/>
