@@ -6,23 +6,21 @@ class CpuSentinel < Formula
 	license "MIT"
 	version "0.2"
 
+	# Create a config dir in /usr/local/etc for config files
+	#   which will persist undisturbed across `brew upgrade`
 	def configdir
 		etc/"cpu-sentinel"
 	end
 
+	# Install binary and config file
 	def install
-	# Move everything under #{libexec}/
-	# libexec.install Dir["*"]
-
-	# Then write executables under #{bin}/
-	# bin.write_exec_script (libexec/"cpu-sentinel")
-
-	bin.install "cpu-sentinel"
-	configdir.install "procs.conf"
+		bin.install "cpu-sentinel"
+		configdir.install "procs.conf"
 	end
 
-	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
-	# https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+	# Define Apple LaunchCTL service plist file
+	#   https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
+	#   https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
 	def plist; <<~EOS
 		<?xml version="1.0" encoding="UTF-8"?>
 		<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -35,7 +33,7 @@ class CpuSentinel < Formula
 			<array>
 				<string>/usr/local/opt/cpu-sentinel/bin/cpu-sentinel</string>
 				<string>-f</string>
-				<string>/usr/local/opt/cpu-sentinel/etc/procs.conf</string>
+				<string>/usr/local/etc/cpu-sentinel/procs.conf</string>
 				<string>-s</string>
 				<string>0</string>
 				<string>-p</string>
@@ -59,7 +57,8 @@ class CpuSentinel < Formula
 	end
 
 	test do
-	system "true"
-	# assert_match "mytool version 1.0.0", shell_output("#{bin}/mytool -v", 2)
+	# system "true"
+	# assert that the version of the CPU Sentinel is correct, and it exits with 0 exit code
+	assert_match "CPU Sentinel v0.2 alpha", shell_output("#{bin}/cpu-sentinel --version", 0)
 	end
 end
