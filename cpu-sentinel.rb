@@ -6,6 +6,10 @@ class CpuSentinel < Formula
 	license "MIT"
 	version "0.2"
 
+	def configdir
+		etc/"cpu-sentinel"
+	end
+
 	def install
 	# Move everything under #{libexec}/
 	# libexec.install Dir["*"]
@@ -14,7 +18,7 @@ class CpuSentinel < Formula
 	# bin.write_exec_script (libexec/"cpu-sentinel")
 
 	bin.install "cpu-sentinel"
-	etc.install "procs.conf"
+	configdir.install "procs.conf"
 	end
 
 	# https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
