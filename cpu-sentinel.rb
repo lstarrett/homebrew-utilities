@@ -1,10 +1,10 @@
 class CpuSentinel < Formula
 	desc "CPU Sentinel CLI"
 	homepage "https://github.com/lstarrett/cpu-sentinel"
-	url "https://github.com/lstarrett/cpu-sentinel/archive/0.2.tar.gz"
-	sha256 "e6b50746dca969a7ab527cf9e7a65239cad291210e906e2595f772ef6b1cbd96"
+	url "https://github.com/lstarrett/cpu-sentinel/archive/0.3.tar.gz"
+	sha256 "4c29439ab9a860b5bbca159d7c2410b0f8c897ad363293c2aac3ad6f1821c1c9"
 	license "MIT"
-	version "0.2"
+	version "0.3"
 
 	# Create a config dir in /usr/local/etc for config files
 	#   which will persist undisturbed across `brew upgrade`
@@ -59,6 +59,6 @@ class CpuSentinel < Formula
 	test do
 	# system "true"
 	# assert that the version of the CPU Sentinel is correct, and it exits with 0 exit code
-	assert_match "CPU Sentinel v0.2 alpha", shell_output("#{bin}/cpu-sentinel --version", 0)
+	assert_match "CPU Sentinel v0.3 alpha", shell_output("#{bin}/cpu-sentinel --version", 0)
 	end
 end
