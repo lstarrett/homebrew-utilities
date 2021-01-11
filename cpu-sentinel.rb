@@ -1,10 +1,10 @@
 class CpuSentinel < Formula
 	desc "CPU Sentinel CLI"
 	homepage "https://github.com/lstarrett/cpu-sentinel"
-	url "https://github.com/lstarrett/cpu-sentinel/archive/0.6.tar.gz"
-	sha256 "44165aa4b217f94dfa62948404f90f07c6dc8d5a1ad9bfd5baea83ecb885dc20"
+	url "https://github.com/lstarrett/cpu-sentinel/archive/0.7.tar.gz"
+	sha256 "236810320556343dc657a7e58206919ad0efbdaf79bfc52bb7b8482747903995"
 	license "MIT"
-	version "0.6"
+	version "0.7"
 
 	# Create a config dir in /usr/local/etc for config files
 	#   which will persist undisturbed across `brew upgrade`
