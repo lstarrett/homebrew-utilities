@@ -18,9 +18,16 @@ class CpuSentinel < Formula
 		configdir.install "procs.conf"
 	end
 
-	# Define Apple LaunchCTL service plist file
+	# Define Apple Launchd service plist file
+	#
+	# This service runs CPU Sentinel every ten minutes to search for latest PIDs for
+	# target processes and de-prioritize them to the minimum scheduler niceness
+	# level on macOS (20).
+	#
+	# Homebrew Services and macOS Launchd docs::
 	#   https://docs.brew.sh/Formula-Cookbook#launchd-plist-files
 	#   https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+	#
 	def plist; <<~EOS
 		<?xml version="1.0" encoding="UTF-8"?>
 		<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -41,7 +48,7 @@ class CpuSentinel < Formula
 			</array>
 
 			<key>StartInterval</key>
-			<integer>120</integer>
+			<integer>600</integer>
 
 			<key>StandardErrorPath</key>
 			<string>/usr/local/var/log/homebrew.mxcl.cpu-sentinel.err</string>
@@ -57,7 +64,6 @@ class CpuSentinel < Formula
 	end
 
 	test do
-	# system "true"
 	# assert that the version of the CPU Sentinel is correct, and it exits with 0 exit code
 	assert_match "CPU Sentinel v0.3 alpha", shell_output("#{bin}/cpu-sentinel --version", 0)
 	end
